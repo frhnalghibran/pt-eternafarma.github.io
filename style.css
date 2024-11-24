@@ -1,0 +1,793 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.hero-section {
+    position: relative;
+    min-height: 100vh; /* Tinggi minimal satu layar penuh */
+    background-color: #e8e1ff; /* Warna biru muda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Potong elemen yang melampaui area */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* Lingkaran Ungu */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    width: 68svw; /* Ukuran lingkaran */
+    height: 65vw; /* Ukuran lingkaran */
+    background-color: #643579; /* Warna ungu gelap */
+    border-radius: 50%; /* Membuat lingkaran */
+    bottom: -20vw; /* Sedikit di bawah untuk menonjolkan efek */
+    right: -20vw; /* Sedikit di kanan untuk menonjolkan efek */
+}
+
+.image-wrapper {
+    position: absolute;
+    bottom: 10%; /* Posisi gambar di atas lingkaran */
+    right: -1%; /* Sesuaikan posisi horizontal gambar */
+    bottom: 1cm;
+    z-index: 2; /* Pastikan gambar berada di atas lingkaran */
+    transform: translate(0, 10%); /* Perbaikan penempatan */
+}
+
+.doctor-image {
+    width: 700px; /* Ukuran gambar */
+    max-width: 100%;
+}
+
+.btn-primary {
+    background-color: #643579; /* Warna ungu sesuai tema */
+    border-color: #643579; /* Warna border */
+    color: #fff; /* Warna teks */
+    padding: 0.75rem 1.5rem; /* Ukuran tombol */
+    font-size: 1rem;
+    border-radius: 8px; /* Sudut membulat */
+    text-decoration: none; /* Hilangkan underline */
+    display: inline-block; /* Agar tombol tetap mengikuti layout */
+    transition: all 0.3s ease; /* Animasi hover */
+}
+
+.btn-primary:hover {
+    background-color: #4b2675; /* Warna lebih gelap saat hover */
+    border-color: #4b2675;
+    color: #fff;
+}
+
+.hero-text {
+    max-width: 58%; /* Batas lebar teks */
+    z-index: 2; /* Pastikan di atas lingkaran */
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold; /* Teks tebal */
+    color: var(--primary-color, #643579); /* Warna teks ungu */
+    line-height: 1.4; /* Spasi antar baris */
+    margin-bottom: 1rem; /* Jarak bawah */
+}
+
+.hero-text p {
+    font-size: 1.1rem; /* Ukuran deskripsi */
+    color: #643579; /* Warna teks deskripsi */
+    line-height: 1.8;
+    margin-bottom: 0.2rem;
+    word-wrap: break-word; /* Potong kata jika terlalu panjang */
+    overflow-wrap: break-word; /* Atur agar teks turun ke bawah */
+}
+
+/* Sembunyikan gambar dan lingkaran pada perangkat non-desktop */
+@media (max-width: 992px) {
+    .image-wrapper {
+        display: none; /* Hilangkan gambar */
+    }
+
+    .hero-section::after {
+        display: none; /* Hilangkan lingkaran di belakang */
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column; /* Susun elemen secara vertikal */
+        text-align: center; /* Pusatkan teks */
+    }
+
+    .hero-text {
+        max-width: 90%; /* Lebar teks lebih besar */
+        margin: 0 auto; /* Pusatkan secara horizontal */
+    }
+
+    .hero-text h1 {
+        font-size: 2rem; /* Ukuran heading lebih kecil */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Ukuran teks deskripsi lebih kecil */
+    }
+
+    .btn-primary {
+        margin-top: 1rem;
+        align-self: center; /* Pusatkan tombol */
+    }
+}
+
+
+/* About Section */
+.about {
+    padding: 4rem 2rem; /* Jarak atas dan bawah */
+    text-align: center; /* Pusatkan teks secara horizontal */
+    background-color: #fff; /* Warna latar belakang putih */
+    margin-bottom: 2rem; /* Tambahkan jarak dengan elemen di bawahnya */
+}
+
+.about-title {
+    font-size: 2.5rem; /* Ukuran font besar */
+    font-weight: bold; /* Tebal font */
+    color: #643579; /* Warna teks ungu sesuai tema */
+    text-transform: uppercase; /* Huruf kapital semua */
+    letter-spacing: 0.1rem; /* Jarak antar huruf */
+    margin-bottom: 3rem; /* Hilangkan margin bawaan */
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.teks {
+    text-align: left; /* Teks rata kiri secara default */
+    padding: 1rem; /* Tambahkan padding untuk ruang di dalam kontainer */
+}
+
+.teks p {
+    font-size: 20px; /* Ukuran teks default */
+    line-height: 1.8; /* Spasi antar baris teks */
+    color: #643579; /* Warna teks gelap */
+    margin-bottom: 1.5rem; /* Jarak antar paragraf */
+}
+
+.teks a.btn-primary {
+    display: inline-block; /* Supaya tombol tidak melebar penuh */
+    margin-top: 1rem; /* Jarak antara tombol dan teks terakhir */
+    background-color: #643579; /* Warna tombol */
+    color: #fff; /* Warna teks tombol */
+    padding: 0.75rem 1.5rem; /* Ukuran tombol */
+    font-size: 1rem; /* Ukuran font tombol */
+    border-radius: 8px; /* Sudut membulat */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: background-color 0.3s ease; /* Animasi hover */
+}
+
+.teks a.btn-primary:hover {
+    background-color: #4b2675; /* Warna lebih gelap saat hover */
+}
+
+/* Wrapper Section */
+.gradient-wrapper {
+    margin-top: 4rem;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #6a4b99, #a373c9); /* Gradasi ungu */
+    border-radius: 16px; /* Sudut membulat */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Title Section */
+.gradient-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+/* About Card */
+.about-card {
+    border-radius: 12px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Body */
+.about-card-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Card Title */
+.about-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #643579;
+    margin-bottom: 1rem;
+}
+
+/* Card Text */
+.about-card-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: #643579;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .gradient-title {
+        font-size: 2rem;
+    }
+
+    .about-card-body {
+        padding: 1.5rem;
+    }
+
+    .about-card-title {
+        font-size: 1.25rem;
+    }
+
+    .about-card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gradient-title {
+        font-size: 1.8rem;
+    }
+
+    .about-card-body {
+        padding: 1.25rem;
+    }
+
+    .about-card-title {
+        font-size: 1.2rem;
+    }
+
+    .about-card-text {
+        font-size: 0.85rem;
+    }
+}
+
+
+.contact-section {
+    padding: 4rem 2rem; /* Jarak atas dan bawah */
+    background-color: #fff; /* Latar putih */
+}
+
+.contact-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #643579; /* Warna ungu */
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.contact-subtitle {
+    font-size: 1.25rem;
+    color: #4b2675; /* Warna ungu gelap */
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+/* Informasi Kontak */
+
+
+/* Peta */
+iframe {
+    border-radius: 8px; /* Membulatkan sudut iframe */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+}
+
+.footer {
+    background-color: #643579; /* Warna ungu */
+    color: #fff; /* Warna teks putih */
+    padding: 2rem 0; /* Jarak atas dan bawah */
+}
+
+.footer-logo {
+    width: 70px; /* Ukuran logo */
+    height: auto; /* Pertahankan proporsi */
+    border-radius: 8px; /* Membulatkan sudut logo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+}
+
+.footer p {
+    margin: 0.5rem 0; /* Jarak antar teks */
+    font-size: 1rem; /* Ukuran teks */
+    color: #ddd; /* Warna teks terang */
+}
+
+.footer p strong {
+    color: #fff; /* Warna teks tebal */
+}
+
+/* --- Ukuran Ponsel (Max 576px) --- */
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 1.8rem; /* Ukuran heading lebih kecil */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Ukuran teks lebih kecil */
+    }
+
+    .image-wrapper {
+        width: 100%; /* Gambar hero memenuhi layar */
+        text-align: center; /* Gambar di tengah */
+    }
+
+    .doctor-image {
+        width: 90%; /* Kurangi ukuran gambar */
+        margin: 0 auto; /* Gambar tetap rata tengah */
+    }
+
+    .about-title {
+        font-size: 2rem; /* Kurangi ukuran heading */
+    }
+
+    .gradient-wrapper {
+        padding: 2rem 1rem; /* Kurangi padding */
+    }
+
+    .card-title {
+        font-size: 1.15rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .contact-section {
+        text-align: center;
+    }
+
+    .contact-item {
+        flex-direction: column; /* Susun ikon dan teks secara vertikal */
+        text-align: center; /* Rata tengah */
+    }
+
+    .contact-item .icon {
+        margin-bottom: 1rem; /* Tambahkan jarak antara ikon dan teks */
+    }
+
+    .footer {
+        text-align: center; /* Footer rata tengah */
+    }
+}
+
+/* --- Ukuran Tablet (Max 768px) --- */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem; /* Ukuran heading lebih kecil */
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .gradient-wrapper {
+        padding: 3rem 1rem;
+    }
+
+    .card {
+        margin-bottom: 1.5rem; /* Jarak antar card */
+    }
+
+    .contact-info {
+        text-align: center; /* Rata tengah di tablet */
+    }
+
+    .contact-item {
+        justify-content: center; /* Susun elemen di tengah */
+    }
+
+    .footer-logo {
+        margin-bottom: 1rem; /* Tambahkan jarak di bawah logo */
+    }
+}
+
+/* --- Desktop Besar (Min 1200px) --- */
+@media (min-width: 1200px) {
+    .hero-text h1 {
+        font-size: 3rem; /* Heading lebih besar di layar besar */
+    }
+
+    .hero-text p {
+        font-size: 1.2rem; /* Deskripsi lebih besar */
+    }
+
+    .gradient-wrapper {
+        padding: 5rem 3rem;
+    }
+
+    .footer {
+        padding: 3rem 0;
+    }
+
+    .footer-logo {
+        width: 80px; /* Logo sedikit lebih besar */
+    }
+}
+
+.contact-section {
+    padding: 4rem 2rem; /* Jarak atas dan bawah */
+    background-color: #fff; /* Warna latar putih */
+}
+
+.contact-title {
+    font-size: 2rem; /* Ukuran judul */
+    font-weight: bold; /* Tebal font */
+    color: #643579; /* Warna ungu */
+    text-align: left; /* Rata kiri */
+    margin-bottom: 0.5rem;
+}
+
+.contact-subtitle {
+    font-size: 1.25rem; /* Ukuran subtitle */
+    color: #4b2675; /* Warna ungu gelap */
+    text-align: left; /* Rata kiri */
+    margin-bottom: 2rem; /* Jarak bawah */
+}
+
+/* Informasi Kontak */
+.contact-item {
+    display: flex; /* Gunakan flexbox untuk ikon dan teks */
+    align-items: center; /* Sejajarkan ikon dan teks secara vertikal */
+    margin-bottom: 1.5rem; /* Jarak antar item */
+}
+
+.contact-item .icon {
+    width: 50px; /* Ukuran kotak ikon */
+    height: 50px; /* Ukuran kotak ikon */
+    background-color: #643579; /* Warna ungu */
+    color: #fff; /* Warna ikon putih */
+    border-radius: 8px; /* Sudut membulat */
+    display: flex; /* Pusatkan ikon */
+    align-items: center; /* Pusatkan ikon secara vertikal */
+    justify-content: center; /* Pusatkan ikon secara horizontal */
+    font-size: 1.5rem; /* Ukuran ikon */
+    margin-right: 1rem; /* Jarak antara ikon dan teks */
+}
+
+.contact-item .text h4 {
+    font-size: 1.25rem; /* Ukuran heading */
+    font-weight: bold; /* Teks tebal */
+    color: #643579; /* Warna ungu */
+    margin-bottom: 0.5rem; /* Jarak bawah heading */
+}
+
+.contact-item .text p {
+    font-size: 1rem; /* Ukuran teks deskripsi */
+    color: #333; /* Warna teks */
+    margin: 0;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .contact-section {
+        text-align: center; /* Teks rata tengah di layar kecil */
+    }
+
+    .contact-item {
+        flex-direction: column; /* Susun ikon dan teks secara vertikal */
+        text-align: center; /* Rata tengah */
+    }
+
+    .contact-item .icon {
+        margin-bottom: 0.5rem; /* Jarak antara ikon dan teks */
+    }
+}
+
+
+/* HISTORY PAGE */
+/* HISTORY PAGE */
+/* HISTORY PAGE */
+
+
+/* Section Sejarah */
+.sejarah-section {
+    padding: 4rem 2rem; /* Jarak atas dan bawah */
+    background-color: #f8f9fa; /* Warna latar abu-abu muda */
+    color: #643579; /* Warna teks */
+    line-height: 1.8; /* Spasi antar baris */
+}
+
+.sejarah-title {
+    font-size: 2.5rem; /* Ukuran judul */
+    font-weight: bold; /* Teks tebal */
+    color: #643579; /* Warna ungu */
+    text-align: left; /* Rata kiri */
+    margin-top: 2rem;
+    margin-bottom: 2rem; /* Jarak dengan paragraf pertama */
+}
+
+.sejarah-text {
+    font-size: 1rem; /* Ukuran teks paragraf */
+    color: #333; /* Warna teks gelap */
+    margin-bottom: 1.5rem; /* Jarak antar paragraf */
+    text-align: justify; /* Rata kanan-kiri untuk teks panjang */
+}
+
+/* Responsivitas */
+@media (max-width: 992px) {
+    .sejarah-title {
+        font-size: 2rem; /* Ukuran judul lebih kecil di tablet */
+        text-align: center; /* Judul rata tengah */
+    }
+
+    .sejarah-text {
+        font-size: 0.9rem; /* Ukuran teks lebih kecil */
+        text-align: justify; /* Tetap rata kanan-kiri */
+    }
+}
+
+@media (max-width: 768px) {
+    .sejarah-title {
+        font-size: 1.8rem; /* Kurangi ukuran judul */
+    }
+
+    .sejarah-text {
+        font-size: 0.85rem; /* Kurangi ukuran teks */
+    }
+}
+
+@media (max-width: 576px) {
+    .sejarah-title {
+        font-size: 1.5rem; /* Ukuran judul di ponsel */
+    }
+
+    .sejarah-text {
+        font-size: 0.8rem; /* Ukuran teks di ponsel */
+    }
+}
+
+/* Filosofi Section */
+.filosofi-section {
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.filosofi-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #643579;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Card Style */
+.filosofi-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 1rem 0; /* Margin seragam */
+    color: #fff; /* Teks putih secara default */
+    text-align: justify;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filosofi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Gradasi */
+.filosofi-card-light {
+    background: linear-gradient(to bottom right, #b084e7, #d3b4ff); /* Gradasi ungu muda, lebih gelap agar teks terlihat */
+}
+
+.filosofi-card-medium {
+    background: linear-gradient(to bottom right, #8655c2, #b084e7); /* Gradasi ungu sedang */
+}
+
+.filosofi-card-dark {
+    background: linear-gradient(to bottom right, #643579, #8655c2); /* Gradasi ungu gelap */
+}
+
+/* Card Terakhir */
+.filosofi-card-last-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem; /* Jarak atas antara card terakhir dan card sebelumnya */
+}
+
+.filosofi-card-last {
+    background: linear-gradient(to bottom right, #4b2675, #643579); /* Gradasi ungu paling gelap */
+    color: #fff;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .filosofi-card {
+        margin: 1rem auto; /* Margin tetap sama pada layar kecil */
+        text-align: justify;
+    }
+
+    .filosofi-card-last-wrapper {
+        margin-top: 2rem;
+    }
+
+    .filosofi-card-last {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .filosofi-title {
+        font-size: 2rem;
+    }
+
+    .filosofi-card {
+        font-size: 0.9rem;
+        padding: 1.5rem;
+        margin: 1rem auto; /* Pastikan margin tetap konsisten */
+    }
+
+    .filosofi-card-last {
+        padding: 1rem;
+    }
+}
+
+
+
+/* PRODUK PAGE */
+/* PRODUK PAGE */
+/* PRODUK PAGE */
+
+
+
+/* --- Section Produk --- */
+.produk-section {
+    padding: 2rem;
+    background-color: #e8e1ff; /* Warna latar belakang */
+    text-align: center;
+}
+
+.produk-section h2 {
+    font-size: 2.5rem; /* Ukuran heading */
+    font-weight: bold;
+    color: #643579; /* Warna ungu */
+    margin-bottom: 0.5rem; /* Jarak bawah heading */
+    margin-top: 5rem;
+}
+
+.produk-section p {
+    font-size: 1rem; /* Ukuran deskripsi */
+    color: #643579; /* Warna deskripsi */
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+/* --- Wrapper Card --- */
+.produk-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Kolom responsif */
+    gap: 1.5rem; /* Jarak antar kartu */
+    max-width: 1200px; /* Batas lebar maksimal */
+    margin: 0 auto; /* Pusatkan grid */
+    padding: 0 1rem; /* Padding sisi untuk perangkat kecil */
+}
+
+/* --- Kartu --- */
+.card {
+    background-color: #643579; /* Warna latar belakang */
+    border-radius: 10px; /* Sudut membulat */
+    overflow: hidden; /* Potong elemen keluar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi saat hover */
+    display: flex;
+    flex-direction: column; /* Susun gambar dan teks secara vertikal */
+    align-items: center; /* Pusatkan elemen */
+    justify-content: flex-start; /* Mulai dari atas */
+    height: auto; /* Tinggi card yang lebih proporsional */
+    min-height: 320px;
+    padding: 1rem; /* Tambahkan padding untuk ruang teks */
+}
+
+/* --- Hover Effect --- */
+.card:hover {
+    transform: translateY(-5px); /* Efek naik saat hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar */
+}
+
+/* --- Gambar pada Card --- */
+.card img {
+    width: auto; /* Sesuaikan lebar gambar secara otomatis */
+    height: 160px; /* Tinggi seragam */
+    display: block; /* Hilangkan spasi bawah gambar */
+    margin: auto; /* Pusatkan gambar dalam card */
+    object-fit: contain; /* Pastikan gambar tidak terdistorsi */
+    border-radius: 5px;
+}
+
+/* --- Teks pada Card --- */
+.card .produk-name {
+    font-size: 1rem; /* Ukuran teks default */
+    font-weight: bold;
+    color: #fff; /* Warna teks */
+    text-align: center;
+    padding: 0.5rem; /* Jarak di dalam teks */
+    word-wrap: break-word; /* Potong teks panjang */
+    margin-top: auto; /* Jarak dinamis agar teks tetap di bawah */
+}
+
+/* --- Responsivitas --- */
+/* Untuk layar kecil (ponsel) */
+@media (max-width: 576px) {
+    .produk-section h2 {
+        font-size: 2rem; /* Ukuran heading lebih kecil */
+    }
+
+    .produk-section p {
+        font-size: 0.9rem; /* Ukuran deskripsi lebih kecil */
+    }
+
+    .card {
+        height: 280px; /* Kurangi tinggi untuk layar kecil */
+    }
+
+    .card img {
+        height: 140px; /* Kurangi tinggi gambar */
+    }
+
+    .card .produk-name {
+        font-size: 0.9rem; /* Ukuran teks lebih kecil */
+    }
+}
+
+/* Untuk layar tablet */
+@media (max-width: 768px) {
+    .produk-section h2 {
+        font-size: 2.2rem; /* Heading lebih kecil */
+    }
+
+    .produk-section p {
+        font-size: 1rem;
+    }
+
+    .produk-container {
+        gap: 1rem; /* Kurangi jarak antar kartu */
+    }
+
+    .card {
+        height: 300px; /* Tinggi sedikit lebih kecil */
+    }
+
+    .card img {
+        height: 150px; /* Tinggi gambar lebih kecil */
+    }
+}
+
+/* Untuk layar besar (desktop besar) */
+@media (min-width: 1200px) {
+    .produk-section h2 {
+        font-size: 3rem; /* Ukuran heading lebih besar */
+    }
+
+    .produk-container {
+        gap: 2rem; /* Jarak antar kartu lebih lebar */
+    }
+
+    .card {
+        height: 340px; /* Tinggi card lebih besar */
+    }
+
+    .card img {
+        height: 180px; /* Tinggi gambar lebih besar */
+    }
+}
